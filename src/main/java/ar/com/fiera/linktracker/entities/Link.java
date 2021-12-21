@@ -25,7 +25,70 @@ public class Link {
     private Url url;
 
     @Column(name = "estado_id")
-    private EstadoLinkEnum estadoLink;
+    private int estadoLink;
+
+
+    
+    public int getLinkId() {
+        return linkId;
+    }
+
+
+
+    public void setLinkId(int linkId) {
+        this.linkId = linkId;
+    }
+
+
+
+    public Date getFechaExpiracion() {
+        return fechaExpiracion;
+    }
+
+
+
+    public void setFechaExpiracion(Date fechaExpiracion) {
+        this.fechaExpiracion = fechaExpiracion;
+    }
+
+
+
+    public String getUrlEnmascarado() {
+        return urlEnmascarado;
+    }
+
+
+
+    public void setUrlEnmascarado(String urlEnmascarado) {
+        this.urlEnmascarado = urlEnmascarado;
+    }
+
+
+
+    public Url getUrl() {
+        return url;
+    }
+
+
+
+    public void setUrl(Url url) {
+        this.url = url;
+        this.url.agregarLink(this);
+    }
+
+
+
+    public EstadoLinkEnum getEstadoLink() {
+        return EstadoLinkEnum.parse(this.estadoLink);
+    }
+
+
+
+
+    public void setEstadoLink(EstadoLinkEnum estadoLink) {
+        this.estadoLink = estadoLink.getValue();
+    }
+
 
 
     public enum EstadoLinkEnum {
