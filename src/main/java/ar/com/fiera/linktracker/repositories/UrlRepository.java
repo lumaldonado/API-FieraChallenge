@@ -8,5 +8,7 @@ import ar.com.fiera.linktracker.entities.Url;
 
 @Repository
 public interface UrlRepository extends JpaRepository<Url, Integer> {
+
+    Url findByUrlEntero(String urlEntero);
     
 }
