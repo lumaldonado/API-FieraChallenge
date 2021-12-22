@@ -1,5 +1,11 @@
 package ar.com.fiera.linktracker.controllers;
 
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+
+import com.google.appengine.repackaged.org.joda.time.LocalDate;
+import com.google.appengine.repackaged.org.joda.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,12 +33,30 @@ public class LinkController {
         GenericResponse respuesta = new GenericResponse();
         respuesta.isOk = true;
         respuesta.id = linkNuevo.getId();
-        respuesta.message = "El link fue creado con exito";
+        respuesta.message = "El link fue creado con exito" + linkNuevo.getUrl() + linkNuevo.getUrlEnmascarado();
          return ResponseEntity.ok(linkNuevo);
 
         
     }
     
+    @PostMapping("/Link/temporal")
+    public ResponseEntity<?> crearLinkTemporal(@RequestBody Link linkTemporal){
+        
+        GenericResponse respuesta = new GenericResponse();
+        
+       /* ZoneId z = ZoneId.of( "America/Argentina" );
+        LocalDate today = LocalDate.now(z );
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-uuuu");
+        LocalDate start = LocalDate.parse( "22-02-2010", f);
+        LocalDate stop = LocalDate.parse( "25-12-2010", f);*/
+
+        respuesta.isOk = true;
+        respuesta.id = linkTemporal.getId();
+        respuesta.message = "El link fue creado con exito" + linkTemporal.getUrl() + linkTemporal.getUrlEnmascarado();
+         return ResponseEntity.ok(linkTemporal);
+
+        
+    }
 
     @PutMapping("/link/{id}")
     public ResponseEntity<GenericResponse> invalidarLink(@PathVariable Integer linkId, @RequestBody EstadoLinkEnum estadoLink ){
