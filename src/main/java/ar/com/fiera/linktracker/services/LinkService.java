@@ -1,5 +1,7 @@
 package ar.com.fiera.linktracker.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,9 +32,13 @@ public class LinkService {
         return link;
     }
 
-    public Link findById(Integer id) {
-        return repo.findbyId(id);
+    public Optional<Link> buscarPorId(Integer id){
+        return repo.findById(id);
     }
+
+    /*public Link findById(Integer id) {
+        return repo.findbyId(id);
+    }*/
 
     public void actualizar(Link link) {
         repo.save(link);

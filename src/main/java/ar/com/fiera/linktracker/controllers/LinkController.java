@@ -62,7 +62,8 @@ public class LinkController {
     public ResponseEntity<GenericResponse> invalidarLink(@PathVariable Integer linkId, @RequestBody EstadoLinkEnum estadoLink ){
         GenericResponse respuesta = new GenericResponse();
 
-        Link link = service.findById(linkId);
+        Link link = new Link();
+        service.buscarPorId(linkId);
         link.setEstadoLink(EstadoLinkEnum.INVALIDO);
         service.actualizar(link);
 

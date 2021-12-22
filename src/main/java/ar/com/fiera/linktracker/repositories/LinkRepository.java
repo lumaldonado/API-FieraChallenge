@@ -8,6 +8,4 @@ import ar.com.fiera.linktracker.entities.Link;
 @Repository
 public interface LinkRepository extends JpaRepository<Link, Integer> {
 
-    Link findbyId(Integer id);
-    
 }
