@@ -1,4 +1,4 @@
-package ar.com.fiera.linktracker.models.request;
+package ar.com.fiera.linktracker.models.response;
 
 public class GenericResponse {
     

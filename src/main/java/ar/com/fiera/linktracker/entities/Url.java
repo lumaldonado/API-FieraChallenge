@@ -13,7 +13,7 @@ public class Url {
     @Column(name = "url_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int urlId;
+    private Integer urlId;
 
     @Column(name = "url_entero")
     private String urlEntero;
@@ -22,11 +22,11 @@ public class Url {
     @JsonIgnore
     private List<Link> links = new ArrayList<>();
 
-    public int getUrlId() {
+    public Integer getUrlId() {
         return urlId;
     }
 
-    public void setUrlId(int urlId) {
+    public void setUrlId(Integer urlId) {
         this.urlId = urlId;
     }
 
@@ -49,4 +49,6 @@ public class Url {
     public void agregarLink(Link link) {
         this.links.add(link);
     }
+
+    
 }

@@ -12,16 +12,16 @@ import ar.com.fiera.linktracker.repositories.LinkRepository;
 public class LinkService {
 
     @Autowired
-    LinkRepository repo;
+    public LinkRepository repo;
 
     public void crear(Link linkNuevo){
         repo.save(linkNuevo);
     }
 
-    public Link crearLink(int linkId, String urlEnmascarado, Url urlId, int estadoLink) {
+    public Link crearLink(Integer id, String urlEnmascarado, Url urlId, int estadoLink) {
         
         Link link = new Link();
-        link.setLinkId(linkId);
+        link.setId(id);
         link.setUrlEnmascarado(urlEnmascarado);
         link.setUrl(urlId);
         link.setEstadoLink(EstadoLinkEnum.VALIDO);
@@ -30,8 +30,8 @@ public class LinkService {
         return link;
     }
 
-    public Link buscarPorId(Integer linkId) {
-        return repo.findLinkbyId(linkId);
+    public Link findById(Integer id) {
+        return repo.findbyId(id);
     }
 
     public void actualizar(Link link) {

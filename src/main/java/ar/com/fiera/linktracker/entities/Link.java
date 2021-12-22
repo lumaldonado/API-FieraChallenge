@@ -12,7 +12,7 @@ public class Link {
     @Column(name = "link_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int linkId;
+    private Integer id;
     
     @Column(name = "fecha_expiracion")
     private Date fechaExpiracion;
@@ -25,18 +25,18 @@ public class Link {
     private Url url;
 
     @Column(name = "estado_id")
-    private int estadoLink;
+    private Integer estadoLink;
 
 
     
-    public int getLinkId() {
-        return linkId;
+    public int getId() {
+        return id;
     }
 
 
 
-    public void setLinkId(int linkId) {
-        this.linkId = linkId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 
